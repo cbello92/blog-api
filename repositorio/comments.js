@@ -10,7 +10,6 @@ const getAll = () => {
 
 const getCommentsByPost = (postid) => {
     let data = getJSON();
-
     return data.filter(x => x.postId === postid);
 }
 
