@@ -8,12 +8,12 @@ const getById = (id) => {
     return data.find(x => x.id === id) || undefined;
 }
 
-const getByUserId = (userid) => {
+const getPostsByUserId = (userid) => {
     return data.filter(x => x.userId === userid);
 }
 
 module.exports = {
     getAll,
     getById,
-    getByUserId
+    getPostsByUserId
 }
