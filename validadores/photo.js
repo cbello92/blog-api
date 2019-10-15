@@ -46,16 +46,16 @@ const validatePhoto = (photo) => {
         }
     }
 
-    if (!photo.thumbnailurl) {
-        validaciones.thumbnailurl = [
-            "El photo thumbnailurl es requerido",
-            "El photo thumbnailurl debe tener entre 10 y 50 caracteres"
+    if (!photo.thumbnailUrl) {
+        validaciones.thumbnailUrl = [
+            "El photo thumbnailUrl es requerido",
+            "El photo thumbnailUrl debe tener entre 10 y 50 caracteres"
         ];
     } else {
-        const largo = photo.thumbnailurl.length;
+        const largo = photo.thumbnailUrl.length;
         if(largo < 10 || largo > 50) {
-            validaciones.thumbnailurl = [
-                "El photo thumbnailurl debe tener entre 10 y 50 caracteres"
+            validaciones.thumbnailUrl = [
+                "El photo thumbnailUrl debe tener entre 10 y 50 caracteres"
             ];
         }
     }

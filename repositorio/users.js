@@ -1,4 +1,3 @@
-// const data = require('./resources/users.json');
 const fs = require('fs');
 
 const getJSON = () => {
