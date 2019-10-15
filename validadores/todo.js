@@ -26,12 +26,12 @@ const validateTodo = (todo) => {
         }
     }
 
-    if (!todo.completed) {
+    if (todo.completed === null) {
         validaciones.completed = [
             "completed es requerido"
         ];
     } else {
-        if(todo.completed != "true" && todo.completed != "false") {
+        if(typeof todo.completed !== "boolean") {
             validaciones.completed = [
                 "completed es puede tomar sólo valores booleanos"
             ];
