@@ -248,7 +248,6 @@ describe("USERS - API", () => {
         }
     });
 
-
     it("Debe listar users y campos (posts, albums, todos => opcionales)", async () => {
         try {
             const response = await apiClient
@@ -310,6 +309,52 @@ describe("USERS - API", () => {
             assert.isArray(body.posts);
             assert.isArray(body.albums);
             assert.isArray(body.todos);
+
+            return Promise.resolve();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    });
+
+
+    it("Debe obtener user por ID y sus posts", async () => {
+        try {
+            const response = await apiClient
+            .get(`${apiClientBaseUrl}/2/posts`)
+            .expect(200);
+
+            const { body } = response;
+            assert.isObject(body);
+
+            return Promise.resolve();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    });
+
+    it("Debe obtener user por ID y sus albums", async () => {
+        try {
+            const response = await apiClient
+            .get(`${apiClientBaseUrl}/2/albums`)
+            .expect(200);
+
+            const { body } = response;
+            assert.isObject(body);
+
+            return Promise.resolve();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    });
+
+    it("Debe obtener user por ID y sus todos", async () => {
+        try {
+            const response = await apiClient
+            .get(`${apiClientBaseUrl}/2/todos`)
+            .expect(200);
+
+            const { body } = response;
+            assert.isObject(body);
 
             return Promise.resolve();
         } catch (error) {
