@@ -97,7 +97,7 @@ router.get('/', (req, res) => {
                 if (splitQuery.length > 0) {
                     if (splitQuery.find(x => x === 'posts')) {
                         let posts = getPostsByUserId(usuarios[i].id);
-                        usuarios[i] = { ...usuarios[i], posts };
+                        usuarios[i] = { ...usuarios[i], posts }
                     }
                     if (splitQuery.find(x => x === 'albums')) {
                         let albums = getAlbumsByUserId(usuarios[i].id);
