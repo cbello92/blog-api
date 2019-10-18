@@ -75,6 +75,10 @@ router.post('/', (req, res) => {
         const errores = validarPost.validatePost(body);
 
         if (errores) return res.status(400).send(errores);
+        
+        const user = repoUsers.getById(body.userId);
+
+        if(!user) return res.status(404).send({});
 
         const post = save(body);
 
