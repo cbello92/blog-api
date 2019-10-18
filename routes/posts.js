@@ -21,11 +21,14 @@ router.get('/:id', (req, res) => {
     try {
         const postid = parseInt(req.params.id);
         let post = getById(postid);
+
+        if(!post) return res.status(404).send({});
+
         if (req.query && req.query.fields && req.query.fields.length > 0) {
             let splitQuery = req.query.fields.split(',');
             if (splitQuery.length > 0) {
                 if (splitQuery.find(x => x === 'user')) {
-                    let user = repoUsers.getById(post[i].userId);
+                    let user = repoUsers.getById(post.userId);
                     post = { ...post, user };
                 }
                 if (splitQuery.find(x => x === 'comments')) {
