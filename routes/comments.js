@@ -57,6 +57,10 @@ router.post('/', (req, res) => {
 
         if (errores) return res.status(400).send(errores);
 
+        const post = repoPosts.getById(body.postId);
+
+        if(!post) return res.status(404).send({});
+
         const comment = save(body);
 
         res.status(201).send(comment);
