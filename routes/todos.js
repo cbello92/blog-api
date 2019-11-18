@@ -7,6 +7,9 @@ router.get('/:id', (req, res) => {
     try {
         const todoid = parseInt(req.params.id);
         let todo = getById(todoid);
+
+        if(!todo) return res.status(404).send({});
+
         if (req.query && req.query.fields && req.query.fields.length > 0) {
             let splitQuery = req.query.fields.split(',');
             if (splitQuery.length > 0) {
