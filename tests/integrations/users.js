@@ -56,7 +56,7 @@ describe("USERS - API", () => {
         }
     });
 
-    it("No debe guardar user", async () => {
+    it("No debe guardar user con datos incorrectos", async () => {
         try {
             const data = {
                 "name": "Leanne Graham",
@@ -233,6 +233,19 @@ describe("USERS - API", () => {
     });
 
 
+    it("No debe eliminar user si no existe", async () => {
+        try {
+            const response = await apiClient
+                .delete(`${apiClientBaseUrl}/10000000`)
+                .expect(404);
+
+            return Promise.resolve();
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    });
+
+
     it("Debe listar users", async () => {
         try {
             const response = await apiClient
@@ -362,7 +375,7 @@ describe("USERS - API", () => {
         }
     });
 
-    it("No debe obtener un user", async () => {
+    it("No debe obtener un user si no existe", async () => {
         try {
             const response = await apiClient
             .get(`${apiClientBaseUrl}/2000`)

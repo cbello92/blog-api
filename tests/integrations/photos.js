@@ -213,7 +213,7 @@ describe("PHOTOS - API", () => {
         } catch (error) {
             return Promise.reject(error);
         }
-    });
+    }).timeout(10000);
 
 
     it("Debe obtener photo por ID", async () => {
