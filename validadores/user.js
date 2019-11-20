@@ -89,7 +89,7 @@ const validateUser = (user) => {
     } else {
         const largo = user.website.length;
         if (largo < 10 || largo > 50) {
-            validaciones.webiste = [
+            validaciones.website = [
                 "El website debe tener entre 10 y 50 caracteres"
             ];           
         }

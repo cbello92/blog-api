@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "integrations-tests": "./node_modules/.bin/mocha tests/integrations/index.js"
+    "integrations-tests": "./node_modules/.bin/mocha tests/integrations/index.js",
+    "units-tests": "./node_modules/.bin/mocha tests/units/index.js"
   },
   "author": "",
   "license": "ISC",
