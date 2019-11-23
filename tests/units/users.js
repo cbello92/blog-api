@@ -1,5 +1,6 @@
 const { assert } = require('chai');
 const validateUser = require('../../validadores/user');
+const userRepositorio = require('../../repositorio/users');
 
 describe('VALIDADOR USER - API', () => {
   it('El campo name es requerido', () => {
@@ -704,6 +705,36 @@ describe('VALIDADOR USER - API', () => {
     assert.hasAllKeys(validaciones, ["bs"]);
     assert.isArray(validaciones.bs);
     assert.isNotEmpty(validaciones.bs);
+  });
+
+
+  it('User valido', () => {
+    const data = {
+      "name": "Usuario de prueba jsonplaceholder",
+      "username": "Bret.bret.bret",
+      "email": "Sincere@april.com",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 5562222",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+        }
+      },
+      "phone": "1-770-736-8031",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    };
+
+    const validaciones = validateUser.validateUser(data);
+    assert.isUndefined(validaciones);
+    userRepositorio.save(data);
   });
 
 });

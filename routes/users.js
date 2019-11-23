@@ -87,9 +87,9 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        let usuarios = getAll();
+        let usuarios = await getAll();
         if (req.query && req.query.fields && req.query.fields.length > 0) {
             let splitQuery = req.query.fields.split(',');
 
@@ -157,7 +157,7 @@ router.put('/:id', (req, res) => {
     }
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { body } = req;
 
@@ -165,7 +165,7 @@ router.post('/', (req, res) => {
 
         if (errores) return res.status(400).send(errores);
 
-        const user = save(body);
+        const user = await save(body);
 
         res.status(201).send(user);
     } catch (error) {
